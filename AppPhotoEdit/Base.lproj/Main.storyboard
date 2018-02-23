@@ -23,8 +23,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="配置" id="NR1-NS-Mdy">
-                        <barButtonItem key="leftBarButtonItem" title="取消" id="beN-xv-fM1"/>
-                        <barButtonItem key="rightBarButtonItem" title="完成" id="aWc-IH-kLm"/>
+                        <barButtonItem key="leftBarButtonItem" title="儲存" id="beN-xv-fM1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="aWc-IH-kLm"/>
                     </navigationItem>
                     <connections>
                         <outlet property="navigationLeftBtn" destination="beN-xv-fM1" id="asF-Wu-4wu"/>
@@ -38,7 +38,7 @@
         <!--歷史紀錄-->
         <scene sceneID="o1i-cH-sv3">
             <objects>
-                <viewController id="fAM-2C-9mg" sceneMemberID="viewController">
+                <viewController id="fAM-2C-9mg" customClass="HistroyViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KfZ-fj-oAL"/>
                         <viewControllerLayoutGuide type="bottom" id="rIA-fS-Yy6"/>
@@ -52,6 +52,10 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="trash" id="q16-zE-jv9"/>
                         <barButtonItem key="rightBarButtonItem" title="編輯" id="ZGI-MZ-88Z"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="navigationLeftBtn" destination="q16-zE-jv9" id="VcZ-dR-C6t"/>
+                        <outlet property="navigationRightBtn" destination="ZGI-MZ-88Z" id="fRz-9G-xjn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ob0-rI-OyV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,7 +64,7 @@
         <!--更多-->
         <scene sceneID="GVU-HM-ZsC">
             <objects>
-                <viewController id="JXj-6f-bY7" sceneMemberID="viewController">
+                <viewController id="JXj-6f-bY7" customClass="MoreViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hbD-xz-i6c"/>
                         <viewControllerLayoutGuide type="bottom" id="CLQ-X5-cmX"/>

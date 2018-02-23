@@ -78,7 +78,6 @@
     [photoEditView setTag:PhotoEditViewControllerTag_PhotoEdit];
     [photoEditView setFrame:CGRectMake(0.0f, 0.0f, sizePhotoEditView.width, sizePhotoEditView.height)];
     [photoEditView.labelTitle setText:@"圖片"];
-    //[photoEditView.imageView setImage:[UIImage imageNamed:@"screen"]];
     UITapGestureRecognizer *photoEditViewRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTap:)];
     [photoEditView addGestureRecognizer:photoEditViewRecognizer];
     [self.scrollView addSubview:photoEditView];
@@ -89,7 +88,6 @@
     [sizeInfoView setTag:PhotoEditViewControllerTag_Size];
     [sizeInfoView setFrame:CGRectMake(0.0f, photoEditView.frame.origin.y + photoEditView.frame.size.height, sizeView.width, sizeView.height)];
     [sizeInfoView.labelTitle setText:@"尺寸"];
-    //[sizeInfoView.labelContent setText:@"4吋"];
     UITapGestureRecognizer *sizeInfoViewRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTap:)];
     [sizeInfoView addGestureRecognizer:sizeInfoViewRecognizer];
     [self.scrollView addSubview:sizeInfoView];
@@ -100,7 +98,6 @@
     [deviceInfoView setTag:PhotoEditViewControllerTag_Device];
     [deviceInfoView setFrame:CGRectMake(0.0f, sizeInfoView.frame.origin.y + sizeInfoView.frame.size.height, sizeDeviceView.width, sizeDeviceView.height)];
     [deviceInfoView.labelTitle setText:@"設備"];
-    //[deviceInfoView.labelContent setText:@"iPhone5s"];
     UITapGestureRecognizer *deviceInfoViewRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTap:)];
     [deviceInfoView addGestureRecognizer:deviceInfoViewRecognizer];
     [self.scrollView addSubview:deviceInfoView];
@@ -112,7 +109,6 @@
     [bgColorInfoView setTag:PhotoEditViewControllerTag_BgColor];
     [bgColorInfoView setFrame:CGRectMake(0.0f, deviceInfoView.frame.origin.y + deviceInfoView.frame.size.height, sizeBgColorView.width, sizeBgColorView.height)];
     [bgColorInfoView.labelTitle setText:@"顏色"];
-    //[bgColorInfoView.labelContent setText:@"橙色"];
     UITapGestureRecognizer *bgColorInfoViewRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTap:)];
     [bgColorInfoView addGestureRecognizer:bgColorInfoViewRecognizer];
     [self.scrollView addSubview:bgColorInfoView];
@@ -123,7 +119,6 @@
     [mainTitleInfoView setTag:PhotoEditViewControllerTag_MainTitle];
     [mainTitleInfoView setFrame:CGRectMake(0.0f, bgColorInfoView.frame.origin.y + bgColorInfoView.frame.size.height, sizeMainTitleView.width, sizeMainTitleView.height)];
     [mainTitleInfoView.labelTitle setText:@"主標"];
-    //[mainTitleInfoView.labelContent setText:@"App上架幫手"];
     UITapGestureRecognizer *mainTitleInfoViewRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTap:)];
     [mainTitleInfoView addGestureRecognizer:mainTitleInfoViewRecognizer];
     [self.scrollView addSubview:mainTitleInfoView];
@@ -134,7 +129,6 @@
     [subTitleInfoView setTag:PhotoEditViewControllerTag_SubTitle];
     [subTitleInfoView setFrame:CGRectMake(0.0f, mainTitleInfoView.frame.origin.y + mainTitleInfoView.frame.size.height, sizeSubTitleView.width, sizeSubTitleView.height)];
     [subTitleInfoView.labelTitle setText:@"副標"];
-    //[subTitleInfoView.labelContent setText:@"簡單的上架圖示編輯器"];
     UITapGestureRecognizer *subTitleInfoViewRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTap:)];
     [subTitleInfoView addGestureRecognizer:subTitleInfoViewRecognizer];
     [self.scrollView addSubview:subTitleInfoView];
@@ -192,13 +186,68 @@
     
     if(targetBtn.tag == NavigationBarButtonTag_Left){
         
-        //[self.view makeToast:@"左邊" duration:3.0f position:CSToastPositionCenter];
+        [self savePreviewDataToLocalDB];
         
     }else if (targetBtn.tag == NavigationBarButtonTag_Right){
         
-        //[self.view makeToast:@"右邊" duration:3.0f position:CSToastPositionCenter];
+        [self showShareUI];
         
     }
+    
+}
+
+#pragma mark - private data function
+
+- (UIImage *) imageWithView:(UIView *)view
+{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+}
+
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    //UIGraphicsBeginImageContext(newSize);
+    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
+    // Pass 1.0 to force exact pixel size.
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+-(void)savePreviewDataToLocalDB{
+    
+    NSLog(@"%s", __FUNCTION__);
+    
+    PreColumnView *preView = [self.scrollView viewWithTag:PhotoEditViewControllerTag_Preview];
+    UIImage *tempImage = [self imageWithView:preView.preView];
+    tempImage = [self imageWithImage:tempImage scaledToSize:CGSizeMake(320, 568)];
+    self.previewData.finishImage = UIImagePNGRepresentation(tempImage);
+    
+    NSArray *arrayImageFromDB = nil;
+    if([[UserDefaultManager sharedInstance] getPhotoImageArray]){
+        arrayImageFromDB = [[UserDefaultManager sharedInstance] getPhotoImageArray];
+    }
+    
+    NSMutableArray *arrayResult = [[NSMutableArray alloc] initWithArray:arrayImageFromDB];
+    
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:self.previewData.uiImage forKey:PreviewData_UIImage];
+    [dic setObject:self.previewData.stringSize forKey:PreviewData_StringSize];
+    [dic setObject:self.previewData.device forKey:PreviewData_Device];
+    [dic setObject:self.previewData.bgColor forKey:PreviewData_BgColor];
+    [dic setObject:self.previewData.mainTitle forKey:PreviewData_MainTitle];
+    [dic setObject:self.previewData.subTitle forKey:PreviewData_SubTitle];
+    [dic setObject:self.previewData.finishImage forKey:PreviewData_FinishImage];
+    [arrayResult addObject:dic];
+
+    [[UserDefaultManager sharedInstance] savePhotoImageArray:arrayResult];
+    
+    [self.view makeToast:@"已儲存到歷史紀錄" duration:3.0f position:CSToastPositionCenter];
+    
     
 }
 
@@ -213,7 +262,7 @@
             
             PhotoColumnView *photoEditView = [self.scrollView viewWithTag:i];
             
-            [photoEditView.imageView setImage:self.previewData.uiImage];
+            [photoEditView.imageView setImage:[UIImage imageWithData:self.previewData.uiImage]];
             
         }else if (i == PhotoEditViewControllerTag_Size){
             
@@ -249,7 +298,7 @@
             
             PreColumnView *preView = [self.scrollView viewWithTag:i];
             
-            [preView.imageView setImage:self.previewData.uiImage];
+            [preView.imageView setImage:[UIImage imageWithData:self.previewData.uiImage]];
             
         }
         
@@ -278,6 +327,8 @@
 
 -(void)showAlbum{
     
+    NSLog(@"%s", __FUNCTION__);
+    
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
     imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -288,7 +339,22 @@
 
 -(void)showAlbumAuthFail{
     
+    NSLog(@"%s", __FUNCTION__);
+    
     [ProgressHUD showError:@"無法開啟，相簿尚未授權"];
+    
+}
+
+-(void)showShareUI{
+    
+    NSLog(@"%s", __FUNCTION__);
+    
+    PreColumnView *preView = [self.scrollView viewWithTag:PhotoEditViewControllerTag_Preview];
+    UIImage *tempImage = [self imageWithView:preView.preView];
+    tempImage = [self imageWithImage:tempImage scaledToSize:CGSizeMake(320, 568)];
+    
+    UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObjects:@"App上架圖", UIImagePNGRepresentation(tempImage), nil] applicationActivities:nil];
+    [self presentViewController:avc animated:YES completion:nil];
     
 }
 
@@ -297,6 +363,8 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     
+    NSLog(@"%s", __FUNCTION__);
+    
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
     if(!image){
         image = [info objectForKey:UIImagePickerControllerOriginalImage];
@@ -304,7 +372,7 @@
     
     [picker dismissViewControllerAnimated:YES completion:^{
         
-        self.previewData.uiImage = image;
+        self.previewData.uiImage = UIImagePNGRepresentation(image);
         
         [self updateUI];
         

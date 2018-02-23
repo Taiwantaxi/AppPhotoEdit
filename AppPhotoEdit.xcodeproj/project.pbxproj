@@ -17,6 +17,7 @@
 		4F10EFC8203D5C3D00795596 /* PhotoColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F10EFC7203D5C3D00795596 /* PhotoColumnView.m */; };
 		4F10EFCA203D5C4E00795596 /* PhotoColumnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F10EFC9203D5C4E00795596 /* PhotoColumnView.xib */; };
 		4F10EFCC203D677A00795596 /* right-direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F10EFCB203D677A00795596 /* right-direction.png */; };
+		4F2161B120400266008529E5 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F2161B020400266008529E5 /* MoreViewController.m */; };
 		4F4F6C80203EA5570001B16D /* iphone5s-silver.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F6C78203EA5570001B16D /* iphone5s-silver.png */; };
 		4F4F6C81203EA5570001B16D /* iphone5s-spacegray.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F6C79203EA5570001B16D /* iphone5s-spacegray.png */; };
 		4F4F6C82203EA5570001B16D /* iphone6-gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F6C7A203EA5570001B16D /* iphone6-gold.png */; };
@@ -35,6 +36,8 @@
 		4F6B2EAC203D23B600276D09 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2EA6203D23B600276D09 /* ProgressHUD.m */; };
 		4F6B2EAD203D23B600276D09 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2EA9203D23B600276D09 /* UIView+Toast.m */; };
 		4F6B2EB3203D248900276D09 /* PhotoEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2EB2203D248900276D09 /* PhotoEditViewController.m */; };
+		4F7E4FE1203FC5DE00DDA75F /* UserDefaultManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E4FE0203FC5DE00DDA75F /* UserDefaultManager.m */; };
+		4F7E4FE4203FCE8800DDA75F /* HistroyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E4FE3203FCE8800DDA75F /* HistroyViewController.m */; };
 		4FC7A02A203EB2C400AE66B9 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7A029203EB2C400AE66B9 /* BaseModel.m */; };
 		4FC7A02D203EB3AB00AE66B9 /* PreviewData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7A02C203EB3AB00AE66B9 /* PreviewData.m */; };
 		4FDB8EF2203E991F008A416E /* screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB8EF1203E991F008A416E /* screen.png */; };
@@ -57,6 +60,8 @@
 		4F10EFC7203D5C3D00795596 /* PhotoColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoColumnView.m; sourceTree = "<group>"; };
 		4F10EFC9203D5C4E00795596 /* PhotoColumnView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoColumnView.xib; sourceTree = "<group>"; };
 		4F10EFCB203D677A00795596 /* right-direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-direction.png"; sourceTree = "<group>"; };
+		4F2161AF20400266008529E5 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		4F2161B020400266008529E5 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		4F4F6C78203EA5570001B16D /* iphone5s-silver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone5s-silver.png"; sourceTree = "<group>"; };
 		4F4F6C79203EA5570001B16D /* iphone5s-spacegray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone5s-spacegray.png"; sourceTree = "<group>"; };
 		4F4F6C7A203EA5570001B16D /* iphone6-gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone6-gold.png"; sourceTree = "<group>"; };
@@ -81,6 +86,10 @@
 		4F6B2EA9203D23B600276D09 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		4F6B2EB1203D248900276D09 /* PhotoEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoEditViewController.h; sourceTree = "<group>"; };
 		4F6B2EB2203D248900276D09 /* PhotoEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoEditViewController.m; sourceTree = "<group>"; };
+		4F7E4FDF203FC5DE00DDA75F /* UserDefaultManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultManager.h; sourceTree = "<group>"; };
+		4F7E4FE0203FC5DE00DDA75F /* UserDefaultManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultManager.m; sourceTree = "<group>"; };
+		4F7E4FE2203FCE8800DDA75F /* HistroyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistroyViewController.h; sourceTree = "<group>"; };
+		4F7E4FE3203FCE8800DDA75F /* HistroyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistroyViewController.m; sourceTree = "<group>"; };
 		4FC7A028203EB2C400AE66B9 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		4FC7A029203EB2C400AE66B9 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		4FC7A02B203EB3AB00AE66B9 /* PreviewData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewData.h; sourceTree = "<group>"; };
@@ -188,6 +197,10 @@
 				4F0E309B203E6DFB00EFAF11 /* BaseViewController */,
 				4F6B2EB1203D248900276D09 /* PhotoEditViewController.h */,
 				4F6B2EB2203D248900276D09 /* PhotoEditViewController.m */,
+				4F7E4FE2203FCE8800DDA75F /* HistroyViewController.h */,
+				4F7E4FE3203FCE8800DDA75F /* HistroyViewController.m */,
+				4F2161AF20400266008529E5 /* MoreViewController.h */,
+				4F2161B020400266008529E5 /* MoreViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -205,6 +218,7 @@
 		4F6B2EA0203D231300276D09 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4F7E4FDE203FBFC900DDA75F /* Manager */,
 				4FC7A027203EB2B800AE66B9 /* BaseModel */,
 				4FC7A02B203EB3AB00AE66B9 /* PreviewData.h */,
 				4FC7A02C203EB3AB00AE66B9 /* PreviewData.m */,
@@ -246,6 +260,15 @@
 				4F6B2EA9203D23B600276D09 /* UIView+Toast.m */,
 			);
 			path = Toast;
+			sourceTree = "<group>";
+		};
+		4F7E4FDE203FBFC900DDA75F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				4F7E4FDF203FC5DE00DDA75F /* UserDefaultManager.h */,
+				4F7E4FE0203FC5DE00DDA75F /* UserDefaultManager.m */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		4FC7A027203EB2B800AE66B9 /* BaseModel */ = {
@@ -356,6 +379,8 @@
 				4F0E309E203E6DFB00EFAF11 /* BaseViewController.m in Sources */,
 				4F0E30A2203E6E1E00EFAF11 /* BaseView.m in Sources */,
 				4F6B2EAC203D23B600276D09 /* ProgressHUD.m in Sources */,
+				4F2161B120400266008529E5 /* MoreViewController.m in Sources */,
+				4F7E4FE1203FC5DE00DDA75F /* UserDefaultManager.m in Sources */,
 				4FC7A02D203EB3AB00AE66B9 /* PreviewData.m in Sources */,
 				4F0E30AA203E6EDD00EFAF11 /* PreColumnView.m in Sources */,
 				4F6B2E8C203D222C00276D09 /* AppDelegate.m in Sources */,
@@ -364,6 +389,7 @@
 				4F0E3098203E5D0800EFAF11 /* InfoColumnView.m in Sources */,
 				4F6B2EB3203D248900276D09 /* PhotoEditViewController.m in Sources */,
 				4F10EFC8203D5C3D00795596 /* PhotoColumnView.m in Sources */,
+				4F7E4FE4203FCE8800DDA75F /* HistroyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,10 +10,14 @@
 
 #import "BaseViewController.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <AVFoundation/AVFoundation.h>
 
 #import "PreviewData.h"
+
+#import "UserDefaultManager.h"
 
 typedef NS_ENUM(NSInteger, PhotoEditViewControllerTag){
     

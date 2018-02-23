@@ -27,4 +27,9 @@
  */
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+/**
+ * @brief 預覽畫面
+ */
+@property (weak, nonatomic) IBOutlet UIView *preView;
+
 @end

@@ -14,7 +14,7 @@
 
 -(void)initData{
     
-    self.uiImage = [UIImage imageNamed:@"screen"];
+    self.uiImage =  UIImagePNGRepresentation([UIImage imageNamed:@"screen"]);
     
     self.stringSize = @"4吋";
     
@@ -28,5 +28,24 @@
     
 }
 
+#pragma mark - public update function
+
+-(void)updateWithDic:(NSDictionary *) dic{
+    
+    self.uiImage = [dic objectForKey:PreviewData_UIImage];
+    
+    self.stringSize = [dic objectForKey:PreviewData_StringSize];
+    
+    self.device = [dic objectForKey:PreviewData_Device];
+    
+    self.bgColor = [dic objectForKey:PreviewData_BgColor];
+    
+    self.mainTitle = [dic objectForKey:PreviewData_MainTitle];
+    
+    self.subTitle = [dic objectForKey:PreviewData_SubTitle];
+    
+    self.finishImage = [dic objectForKey:PreviewData_FinishImage];
+    
+}
 
 @end

@@ -88,6 +88,7 @@
                 <outlet property="imageView" destination="DKu-s8-RXe" id="FpS-WB-oZg"/>
                 <outlet property="labelMainTitle" destination="tGw-T9-JfV" id="yfw-32-rh9"/>
                 <outlet property="labelSubTitle" destination="LTU-Dg-iRs" id="Ltw-yK-B8f"/>
+                <outlet property="preView" destination="wmA-BR-5IM" id="r5A-HF-dJO"/>
             </connections>
         </view>
     </objects>
